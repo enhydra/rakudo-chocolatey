@@ -9,10 +9,7 @@ jobs:
         runs-on: windows-2019
         steps:
             - uses: actions/checkout@v2
-            - name: Setup choco
-              shell: cmd
-              run: |
-                .\bin\install_choco.cmd
-            - name: Install perl
-              run: |
-                choco install strawberryperl
+            - name: Cook templates
+              run: gmake all
+            - name: Test
+              run: gmake test
