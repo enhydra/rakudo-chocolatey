@@ -13,3 +13,7 @@ jobs:
               shell: cmd
               run: |
                 .\bin\install_choco.cmd
+            - name: See files
+              shell: cmd
+              run: |
+                dir /b /a /s
