@@ -1,5 +1,5 @@
 .PHONY: all
-all: clean
+all:
 	perl bin/cook_templates
 
 .PHONY: test
@@ -13,4 +13,3 @@ push:
 .PHONY: clean
 clean:
 	del cooked_templates\*.nupkg cooked_templates\*.nuspec
-	
