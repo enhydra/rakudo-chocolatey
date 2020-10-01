@@ -10,5 +10,6 @@ jobs:
         steps:
             - uses: actions/checkout@v2
             - name: Setup choco
+              shell: cmd
               run: |
                 .\bin\install_choco.cmd
