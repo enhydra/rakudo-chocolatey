@@ -11,4 +11,4 @@ jobs:
             - uses: actions/checkout@v2
             - name: Setup choco
               run: |
-                bin/install_choco.cmd
+                .\bin\install_choco.cmd
