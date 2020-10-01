@@ -3,6 +3,7 @@ all: setup
 	perl bin/cook_templates
 
 .PHONY: setup
+setup:
 	cpan Mojo::URL XML::Entities
 
 .PHONY: test
