@@ -1,0 +1,15 @@
+name: Create rakudo-star
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    choco:
+        runs-on: windows-2019
+        steps:
+            - uses: actions/checkout@v2
+            - name: Cook templates
+              run: gmake all
+            - name: Test
+              run: gmake test
