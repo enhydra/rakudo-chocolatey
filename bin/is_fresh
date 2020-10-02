@@ -1,10 +1,5 @@
 #!perl
 use v5.24;
-use feature qw(signatures);
-no warnings qw(experimental::signatures);
-
-use open qw(:std :utf8);
-use Data::Dumper;
 
 =encoding utf8
 
@@ -54,11 +49,20 @@ this distribution.
 
 =cut
 
-require 'bin/latest_rakudo_msi_details';
-require 'bin/current_package_details';
+use FindBin qw($Bin);
+use lib ($Bin);
+
+require 'latest_rakudo_msi_details';
+require 'current_package_details';
 
 package is_fresh;
+
+use experimental qw(signatures);
+use open qw(:std :utf8);
+
+use Data::Dumper;
 use IO::Interactive qw(interactive);
+select interactive();
 
 run() unless caller;
 
