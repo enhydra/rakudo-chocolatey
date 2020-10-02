@@ -7,12 +7,16 @@ setup:
 	cpan -T Mojo::URL XML::Entities
 
 .PHONY: test
-test: ## run tests on the package
+test: cook ## run tests on the package
 	prove
 
+.PHONY: pack ## push the package to chocolatey
+pack: cook
+	cd cooked_templates && choco pack
+
 .PHONY: push
-push: cook ## push the package to chocolatey
-	cd cooked_templates && choco pack && choco push
+push: pack ## push the package to chocolatey
+	cd cooked_templates && choco push
 
 .PHONY: clean
 clean: ## remove the cooked templates
