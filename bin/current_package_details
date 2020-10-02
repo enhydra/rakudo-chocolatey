@@ -127,7 +127,7 @@ The default FILE is F<rakudostar.nuspec>.
 
 =cut
 
-sub extract_version ( $file = 'rakudostar.nuspec' ) {
+sub extract_version ( $file = 'cooked_templates/rakudostar.nuspec' ) {
 	_find_pattern( $file, qr{<version>(.*?)</version>} )
 	}
 
