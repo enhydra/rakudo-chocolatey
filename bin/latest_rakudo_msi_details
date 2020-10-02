@@ -124,7 +124,7 @@ sub get_latest_url {
 	state $url = Mojo::URL->new('https://rakudo.org/downloads/star');
 	my $ua = mojo_ua();
 	my $tx = $ua->get($url);
-	
+
 	my $file = $tx->result->dom
 		->find( 'a.file-icon-windows' )
 		->map( attr => 'href' )
@@ -132,7 +132,7 @@ sub get_latest_url {
 		->grep( sub { /\.msi\z/ } )
 		->sort( sub { $b <=> $a } )
 		->first;
-	say "File is $file";	
+	say "File is $file";
 	my $url = Mojo::URL->new( $file )->base( $url->clone )->to_abs;
 	say "URL is $url";
 	return $url;

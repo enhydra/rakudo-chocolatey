@@ -65,7 +65,7 @@ sub get_readme_stuff () {
 	my $url = get_announce_url();
 	say "Announcement URL is $url";
 
-	
+
 	my $markdown    = <<'HERE';
 # Rakudo Star
 
