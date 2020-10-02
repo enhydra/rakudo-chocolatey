@@ -1,5 +1,5 @@
-.PHONY: all
-all: setup  ## cook the templates
+.PHONY: cook
+cook: setup  ## cook the templates
 	perl bin/cook_templates
 
 .PHONY: setup
@@ -11,7 +11,7 @@ test: ## run tests on the package
 	prove
 
 .PHONY: push
-push: ## push the package to chocolatey
+push: cook ## push the package to chocolatey
 	cd cooked_templates && choco pack && choco push
 
 .PHONY: clean
