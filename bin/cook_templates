@@ -89,31 +89,4 @@ foreach my $template ( @templates ) {
 	close $fh;
 	}
 
-#######################################################################
-# Now do the choco stuff
-{
-my $choco = 'choco';
-
-say "Now we'll try to automatically pack and push the update.";
-say "This is a dry run and we won't push." if $dry;
-
-unless( chdir $cooked_dir ) {
-	die "Could not change to $cooked_dir: $!\n";
-	}
-{
-my $rc = system $choco, 'pack';
-say "result of pack was [$rc]";
-if( $rc ) { die "pack seems to have failed. Aborting.\n" }
-}
-
-say "About to push. Haven't tried this live yet!";
-unless( $dry ) {
-	my $rc = system $choco, 'push';
-	say "result of push was [$rc]";
-	if( $rc ) { die "push seems to have failed.\n" }
-	}
-else {
-	say "Not pushing because this is a dry run.";
-	}
-}
 __END__
