@@ -1,5 +1,5 @@
 .PHONY: cook
-cook: setup  ## cook the templates
+cook:  ## cook the templates
 	perl bin/cook_templates
 
 .PHONY: setup
