@@ -4,7 +4,7 @@ cook: setup  ## cook the templates
 
 .PHONY: setup
 setup:
-	cpan Mojo::URL XML::Entities
+	cpan -T Mojo::URL XML::Entities
 
 .PHONY: test
 test: ## run tests on the package
